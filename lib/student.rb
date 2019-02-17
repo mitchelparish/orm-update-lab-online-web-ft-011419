@@ -51,7 +51,6 @@ attr_reader :id
     student
   end
 
-
   def self.new_from_db(row)
      new_student = self.new(row[1], row[2], row[0])
   end
@@ -60,7 +59,5 @@ attr_reader :id
     sql = "SELECT * FROM students WHERE name = ?"
     result = DB[:conn].execute(sql, name)[0]
     Student.new(result[1], result[2], result[0])
-end
-
-
+  end
 end
